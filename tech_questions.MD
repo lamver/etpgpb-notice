@@ -27,6 +27,9 @@
 
         Core_Cache Redis
 
+        return Zend_Registry::isRegistered('redis') ? Zend_Registry::get('redis') : Zend_Registry::get('cache');
+        Zend_Registry::get('redis')
+
 4. Как направить запрос в реплику?
         
         переключиться с реплики на основную в обе стороны через. 
@@ -103,6 +106,7 @@
    
 4. Где хранятся файлы по процедуре? Как они раскидываются по формам?
 
+        lot_documents - table
         PersonalTemplateVariables
         var procedureDocsField = {name: 'common_files', inLot: false, title: 'Файлы по процедуре'};
 
@@ -176,6 +180,10 @@
         $this->placeholderContent['protocolApplications'] = $this->getOosExchange()->constructApplicationsXml($this->protocol, $this->procedure);
    
 3. Где формируются пакеты, где хранятся, как отправляются файлы
+
+        oos_messages - table
+        /cron/sendOOSPlans/
+        /скщт/sendOOSPackets/
 
 ## НР
 1. Рассказать про интеграцию. Когда и как появляются пакеты. Как уходят.
@@ -276,7 +284,7 @@
    
 3. Где происходит проверка прав в коде.
 
-        Access.php
+        /library/Core/Controller/Plugin/Access.php
    
 4. Как сгенерить событие в extjs и прокинуть его в другую форму. Показать на примере.
 
@@ -285,6 +293,6 @@
 5. Как отправить сообщение в RabbitMQ. Как разобрать. Что такое воркер, Как организована многопоточность при разборе. Рассказать про основные настройки воркера.
 
         MqProvider
-
-
-abstract class Service_Eis_ProtocolGenerator_SmspAbstract extends Service_Eis_ProtocolGenerator_Abstract
+        class Core_Amqp_MqProvider
+   
+        abstract class Service_Eis_ProtocolGenerator_SmspAbstract extends Service_Eis_ProtocolGenerator_Abstract
