@@ -244,10 +244,11 @@
         is_last_version
    
 3. Где происходит подписание файлов договора?
+        
         contract_files_sign
         OrderContractContragent
-   abstract class OrderContractContragent
-   $contractContragent = (new OrderContractContragentFactory)->create($extract_p7z, null);
+        abstract class OrderContractContragent
+        $contractContragent = (new OrderContractContragentFactory)->create($extract_p7z, null);
    
 4. Как добавляется надпечатка?
 
