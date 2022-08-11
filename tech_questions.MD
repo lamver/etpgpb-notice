@@ -115,6 +115,10 @@
 5. Как установить обеспечение и задаток в процедуре. На какие поля в БД это влияет?
 
         finance_guarantee
+        
+        GuaranteeRequestService.php
+        
+        
         const APP_GUARANTEE_TYPE_DEPOSIT = 1; -задаток
 
         const REQ_PRICE_TYPE_SUM = 1;
